@@ -104,7 +104,7 @@ class MapsController extends AbstractPluginController
      *
      * @return Response
      */
-    public function localizeMember(Request $request, Response $response, int $id = null): Response
+    public function localizeMember(Request $request, Response $response, ?int $id = null): Response
     {
         if ($id === null) {
             $id = (int)$this->login->id;
@@ -193,7 +193,7 @@ class MapsController extends AbstractPluginController
      *
      * @return Response
      */
-    public function ILiveHere(Request $request, Response $response, int $id = null): Response
+    public function ILiveHere(Request $request, Response $response, ?int $id = null): Response
     {
         $error = null;
         $message = null;

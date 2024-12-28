@@ -63,7 +63,7 @@ class NominatimTowns
      *
      * @return array<int, array<string, string>>
      */
-    public function search(string $town, string $country = null): array
+    public function search(string $town, ?string $country = null): array
     {
         if (!$town || trim($town) === '') {
             throw new \RuntimeException(
