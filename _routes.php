@@ -63,7 +63,7 @@ $app->get(
 $app->get(
     '/map',
     [MapsController::class, 'map']
-)->setName('maps_map')->add($check_js_middleware);
+)->setName('maps_map')->add($check_js_middleware)->add(\Galette\Middleware\PublicPages::class);
 
 $app->post(
     '/i-live-here[/{id:\d+}]',

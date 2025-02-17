@@ -56,14 +56,6 @@ class MapsController extends AbstractPluginController
      */
     public function map(Request $request, Response $response): Response
     {
-        $login = $this->login;
-        if (!$this->preferences->showPublicPages($login)) {
-            //public pages are not actives
-            return $response
-                ->withStatus(301)
-                ->withHeader('Location', $this->routeparser->urlFor('slash'));
-        }
-
         $coords = new Coordinates();
         $list = $coords->listCoords();
 
@@ -72,10 +64,6 @@ class MapsController extends AbstractPluginController
             'page_title'        => _T('Maps', 'maps'),
             'module_id'         => $this->getModuleId()
         ];
-
-        if (!$login->isLogged()) {
-            $params['is_public'] = true;
-        }
 
         if ($list !== false) {
             $params['list'] = $list;
